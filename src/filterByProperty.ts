@@ -10,12 +10,12 @@
  * @param value - 要過濾的屬性值
  * @returns - 回傳過濾後的陣列
  */
-export function filterByProperty(){
-    // 請在此處寫下你的程式碼
-}
+// export function filterByProperty(){
+//     // 請在此處寫下你的程式碼
+// }
 
 
 // 寫法推薦
-// export function filterByProperty<T, K extends keyof T>(array: T[], property: K, value: T[K]): T[] {
-    
-// }
+export function filterByProperty<T, K extends keyof T>(array: T[], property: K, value: T[K]): T[] { // extends可使型別變數K是使用變數傳參方式，而使typescript檢測採用鴨子模式，可容許屬性增加(此例除了必要的name和age，還可以有不同屬性存在)
+    return array.filter(item => item[property] === value)
+}

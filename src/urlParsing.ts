@@ -20,4 +20,10 @@ interface UrlParts {
 
 export function parseUrl(url: string): UrlParts {
    // 請在此處寫下你的程式碼
+   let node = url.split('/').filter(item => item)
+   return {
+    protocol: node[0],
+    hostname: node[1],
+    path: `/${node[2]}`
+   }
 }

@@ -14,4 +14,8 @@
  */
 export function createObjectAccessor<T>(obj: T) {
     // 請在此處寫下你的程式碼
+    const get = (attr: keyof T): T[keyof T] => obj[attr] // keyof 取用索引型別
+    const set = (attr: keyof T, value: T[keyof T]): void => { obj[attr] = value }
+    
+    return {get, set}
 }

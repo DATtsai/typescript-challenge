@@ -6,4 +6,14 @@
  */
 
 // 請在下方寫下你的程式碼
-
+export const fetchData = (url: string): Promise<number> => {
+    return new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest()
+            xhr.open('get', url, true)
+            xhr.send()
+            xhr.onload = () => {
+                if(xhr.status !== 200) reject('error')
+                resolve(JSON.parse(xhr.responseText))
+            }
+    })
+}
